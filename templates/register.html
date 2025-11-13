@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Usuario</title>
+</head>
+<body>
+    <h1>Registro de Usuario</h1>
+    <form action="{{ url_for('register') }}" method="POST">
+        <label for="primernombre">Primer Nombre:</label>
+        <input type="text" id="primernombre" name="primernombre" required><br><br>
+
+        <label for="segundonombre">Segundo Nombre:</label>
+        <input type="text" id="segundonombre" name="segundonombre" required><br><br>
+
+        <label for="primerapellido">Primer apellido:</label>
+        <input type="primerapellido" id="primerapellido" name="primerapellido" required><br><br>
+
+        <label for="segundopellido">Primer apellido:</label>
+        <input type="segundopellido" id="segundopellido" name="segundopellido" required><br><br>
+
+        <label for="correo">Correo electrónico:</label>
+        <input type="correo" id="correo" name="correo" required><br><br>
+
+        <label for="contraseña">Contraseña:</label>
+        <input type="contraseña" id="contraseña" name="contraseña" required><br><br>
+
+        <label for="confirma_contraseña">Confirmar contraseña:</label>
+        <input type="confirma_contraseña" id="confirma_contraseña" name="confirma_contraseña" required><br><br>
+
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br><br>
+
+        <label for="rol">Rol:</label>
+        <select id="rol" name="rol" required>
+            <option value="">-- Selecciona un rol --</option>
+            <option value="estudiante">Estudiante</option>
+            <option value="profesor">Profesor</option>
+            <option value="administrador">Administrador</option>
+        </select><br><br>
+
+        <button type="submit">Registrar</button>
+    </form>
+    <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+HP@PVDCENTRO014 MINGW64 ~/Taller-de-investigaci-n (main)
+$ git status
+git fetch origin
+git log --oneline --graph --decorate --all --branches=origin/main,main     
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+remote: Enumerating objects: 19, done.
+remote: Counting objects: 100% (19/19), done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 16 (delta 0), reused 8 (delta 0), pack-reused 0 (from 0)     
+Unpacking objects: 100% (16/16), 4.04 KiB | 18.00 KiB/s, done.
+From https://github.com/DidierAragon/Taller-de-investigaci-n
+   5335d01..101d487  main       -> origin/main
+* cc74068 (HEAD -> main) plataforma
+| * 101d487 (origin/main, origin/HEAD) Add files via upload
+| * ea942ef init
+| * f47c977 init
+|/
+* 5335d01 init
+* aba0cfe Create registro.css
+* a80345f init
+* 051b30f Taller de investigacion
+(.venv) 
+HP@PVDCENTRO014 MINGW64 ~/Taller-de-investigaci-n (main)
+$ git pull --rebase origin main
+From https://github.com/DidierAragon/Taller-de-investigaci-n
+ * branch            main       -> FETCH_HEAD
+Successfully rebased and updated refs/heads/main.
+(.venv) 
+HP@PVDCENTRO014 MINGW64 ~/Taller-de-investigaci-n (main)
+$ git push -u origin main
+Enumerating objects: 1871, done.
+Counting objects: 100% (1871/1871), done.
+Delta compression using up to 5 threads
+Compressing objects: 100% (1827/1827), done.
+Writing objects: 100% (1865/1865), 10.18 MiB | 1.11 MiB/s, done.
+Total 1865 (delta 117), reused 1 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (117/117), completed with 3 local objects.  
+To https://github.com/DidierAragon/Taller-de-investigaci-n.git
+   101d487..8cc0d62  main -> main
+branch 'main' set up to track 'origin/main'.
+(.venv) 
