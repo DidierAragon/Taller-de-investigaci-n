@@ -22,3 +22,7 @@ se refiere a enviar a un usuario de una página a otra, generalmente implementad
 Que es url_for:
 es una función de la biblioteca Flask que se usa para construir URLs dinámicamente a partir del nombre de la función de vista, en lugar de la ruta en sí. Esto permite crear enlaces estables que no necesitan ser actualizados manualmente si la URL cambia, y también es útil para generar enlaces a archivos estáticos y pasar argumentos a las funciones de vista. 
 
+Que es werkzeug.security:
+"Werkzeug security" se refiere a las funcionalidades de seguridad que proporciona la biblioteca Werkzeug, principalmente para proteger aplicaciones web desarrolladas en Python. Esto incluye herramientas para generar y verificar hashes de contraseñas (generate_password_hash y check_password_hash), y para sanear nombres de archivo (secure_filename). 
+
+Que es traceback:
