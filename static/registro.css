@@ -128,3 +128,33 @@ a:hover {
 br{
     margin-bottom: 10px;
 }
+/* ...existing code... */
+
+.card {
+    width: 100%;
+    max-width: 320px; /* ancho máximo del card */
+    margin: 0 auto 16px; /* centra el card y separa del resto */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    background: #fff;
+}
+
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: 180px;        /* altura fija razonable para la cabecera */
+    object-fit: cover;    /* recorta/ajusta la imagen sin deformarla */
+}
+
+/* Ajuste para pantallas muy pequeñas */
+@media (max-width: 380px) {
+    .card-img-top {
+        height: 140px;
+    }
+}
+h5{
+    text-align: center;
+    color: #333;
+    margin-top: 10px;
+}
