@@ -87,10 +87,7 @@ def register():
 
     return render_template('register.html')
 
-@app.route('/login', methods=['GET', 'POST'])#Página de inicio de sesión de usuarios
-#
-
-#en esta parte se realiza el login del usuario para que pueda acceder a la plataforma
+@app.route('/login', methods=['GET', 'POST'])  # Página de inicio de sesión de usuarios
 def login():
     if request.method == 'POST':
         correo = request.form.get('correo', '').strip()
@@ -98,36 +95,39 @@ def login():
 
         try:
             conn = get_db_connection()
-#Establece conexión con la base de datos PostgreSQL.
-
             cur = conn.cursor()
-#Ejecuta una consulta SQL para obtener la contraseña almacenada del usuario con el correo proporcionado.
 
-            cur.execute("SELECT contrasena FROM usuarios WHERE correo = %s", (correo,))
-#Obtiene el resultado de la consulta.
-
+            # Obtener contraseña y rol del usuario
+            cur.execute("SELECT contrasena, id_rol FROM usuarios WHERE correo = %s", (correo,))
             row = cur.fetchone()
-#Cierra el cursor y la conexión a la base de datos.
             cur.close()
             close_db_connection(conn)
 
             if not row:
-#Si no se encuentra el usuario, redirige al login con un mensaje de error.
                 print("Usuario no encontrado")
                 return redirect(url_for('login'))
 
             stored = row[0]
+            id_rol = row[1]
 
-#valida las credenciales del usuario con la informacion almacenada en la base de datos            
+            # Verificar contraseña (hash) o texto plano como fallback
             if (stored and check_password_hash(stored, contraseña)) or (stored == contraseña):
-                return redirect(url_for('home'))
+                # Redirigir según rol
+                if id_rol == 1:
+                    return redirect(url_for('estudiante'))#Redirige a la página de estudiante si el rol es 1
+                elif id_rol == 2:
+                    return redirect(url_for('profesor'))#Redirige a la página de profesor si el rol es 2
+                elif id_rol == 3:
+                    return redirect(url_for('administrador'))#Redirige a la página de administrador si el rol es 3
+                else:
+                    return redirect(url_for('home'))#Redirige a la página de inicio por defecto
             else:
-                print("Credenciales incorrectas")
-                return redirect(url_for('login'))
-        except Exception:
-            print("Error en login:")
-            traceback.print_exc()#Redirige al login en caso de error.
-            return redirect(url_for('login'))
+                print("Credenciales incorrectas")#Mensaje de error por credenciales incorrectas
+                return redirect(url_for('login'))#Redirige de nuevo a la página de inicio de sesión
+        except Exception:#Manejo de excepciones durante el proceso de inicio de sesión
+            print("Error en login:")#Mensaje de error en el inicio de sesión
+            traceback.print_exc()#Imprime la traza del error para depuración
+            return redirect(url_for('login'))#Redirige de nuevo a la página de inicio de sesión en caso de error
 
     return render_template('login.html')
 
@@ -135,6 +135,19 @@ def login():
 @app.route('/home')#Página de inicio después del login exitoso
 def home():
     return render_template('home.html')
+
+# Rutas por rol
+@app.route('/estudiante')#Página específica para estudiantes
+def estudiante():
+    return render_template('estudiante.html')#Renderiza la plantilla HTML para la página de estudiantes
+
+@app.route('/profesor')#Página específica para profesores
+def profesor():
+    return render_template('profesor.html')#Renderiza la plantilla HTML para la página de profesores
+
+@app.route('/administrador')#Página específica para administradores
+def administrador():
+    return render_template('administrador.html')#Renderiza la plantilla HTML para la página de administradores
 
 if __name__ == "__main__":#Punto de entrada principal de la aplicación
     app.run(debug=True)#Ejecuta la aplicación Flask en modo de depuración.
