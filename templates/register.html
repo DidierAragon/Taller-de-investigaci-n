@@ -21,7 +21,7 @@
         <form action="{{ url_for('register') }}" method="POST">
 
             <div class="card">
-                <img src="{{ url_for('static', filename='foto1.png') }}" class="card-img-top" alt="Imagen de Educacion Digital">
+                <img src="{{ url_for('static', filename='foto1.png') }}" class="card-img-top" alt="Imagen de Educación Digital">
 
                 <div class="card-body">
                     <h5 class="card-title">MiBoletín</h5>
@@ -35,37 +35,23 @@
 
             <h1>Registro de Usuario</h1>
 
-            <label for="primernombre">Primer Nombre:</label>
-            <input type="text" id="primernombre" name="primernombre" required>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
 
-            <label for="segundonombre">Segundo Nombre:</label>
-            <input type="text" id="segundonombre" name="segundonombre">
-
-            <label for="primerapellido">Primer apellido:</label>
-            <input type="text" id="primerapellido" name="primerapellido" required>
-
-            <label for="segundopellido">Segundo apellido:</label>
-            <input type="text" id="segundopellido" name="segundopellido">
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required>
 
             <label for="correo">Correo electrónico:</label>
             <input type="email" id="correo" name="correo" required>
 
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+
             <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contraseña" required>
+            <input type="password" id="contrasena" name="contrasena" required>
 
-            <label for="confirma_contraseña">Confirmar contraseña:</label>
-            <input type="password" id="confirma_contraseña" name="confirma_contraseña" required>
-
-            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
-
-            <label for="rol">Rol:</label>
-            <select id="rol" name="rol" required>
-                <option value="">-- Selecciona un rol --</option>
-                <option value="estudiante">Estudiante</option>
-                <option value="profesor">Profesor</option>
-                <option value="administrador">Administrador</option>
-            </select>
+            <label for="confirmar_contrasena">Confirmar contraseña:</label>
+            <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" required>
 
             <button type="submit">Registrar</button>
         </form>

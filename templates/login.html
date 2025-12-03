@@ -18,6 +18,10 @@
             <label for="contraseña">Contraseña:</label>
             <input type="password" id="contraseña" name="contraseña" required>
 
+            <p class="forgot-password">
+                <a href="{{ url_for('forgot_password') }}">¿Has olvidado tu contraseña?</a>
+            </p>
+
             <button type="submit">Ingresar</button>
         </form>
 
